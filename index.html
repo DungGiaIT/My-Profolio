@@ -1,47 +1,540 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <title>My Site</title>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dung Nguyen Tien - VNUK Student</title>
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0f1c07',
+            secondary: '#F5F5DC',
+            accent: {
+              1: '#8FBC8F',
+              2: '#D2B48C',
+              3: '#2C5E1A',
+              4: '#556B2F'
+            }
+          },
+          fontFamily: {
+            'inter': ['Inter', 'sans-serif'],
+            'raleway': ['Raleway', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
   <style>
-    body,
-    h1 {
-      font-family: "Raleway", sans-serif
+    body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
     }
-
-    body,
-    html {
-      height: 100%
+    .scroll-animate {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-out;
     }
-
-    .bgimg {
-      background-image: url('https://images.unsplash.com/photo-1515256722043-0f2b082ddadc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80');
-      min-height: 100%;
-      background-position: center;
-      background-size: cover;
+    .scroll-animate.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .mobile-menu {
+      display: none;
+    }
+    .mobile-menu.active {
+      display: block;
     }
   </style>
 </head>
 
-<body>
-  <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
-    <div class="w3-display-topleft w3-padding-large w3-xlarge">
-      Logo
+<body class="bg-primary text-secondary antialiased">
+  <!-- Navigation -->
+<nav class="bg-[#0f1c07]/95 shadow-lg sticky top-0 w-full z-50 backdrop-blur-sm border-b border-[#8FBC8F]/20">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="#home" class="text-2xl font-bold bg-gradient-to-r from-[#8FBC8F] to-[#D2B48C] bg-clip-text text-transparent hover:from-[#D2B48C] hover:to-[#8FBC8F] transition-all duration-300">DungNguyen</a>
+        <div class="hidden md:flex space-x-8">
+            <a href="#about" class="text-[#8FBC8F] hover:text-[#D2B48C] transition-all duration-300">About</a>
+            <a href="#skills" class="text-[#8FBC8F] hover:text-[#D2B48C] transition-all duration-300">Skills</a>
+            <a href="#experience" class="text-[#8FBC8F] hover:text-[#D2B48C] transition-all duration-300">Experience</a>
+            <a href="#projects" class="text-[#8FBC8F] hover:text-[#D2B48C] transition-all duration-300">Projects</a>
+            <a href="#contact" class="text-[#8FBC8F] hover:text-[#D2B48C] transition-all duration-300">Contact</a>
+        </div>
+        <button id="mobile-menu-btn" class="md:hidden text-gray-600">
+            <i class="fas fa-bars text-xl"></i>
+        </button>
     </div>
-    <div class="w3-display-middle">
-      <h1 class="w3-jumbo w3-animate-top">COMING SOON</h1>
+    
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="mobile-menu md:hidden bg-[#0f1c07] border-t border-[#8FBC8F]/20">
+        <div class="container mx-auto px-6 py-4 flex flex-col space-y-4">
+            <a href="#about" class="text-[#8FBC8F] hover:text-[#D2B48C] transition-all duration-300 py-2 border-b border-[#8FBC8F]/10">About</a>
+            <a href="#skills" class="text-[#8FBC8F] hover:text-[#D2B48C] transition-all duration-300 py-2 border-b border-[#8FBC8F]/10">Skills</a>
+            <a href="#experience" class="text-[#8FBC8F] hover:text-[#D2B48C] transition-all duration-300 py-2 border-b border-[#8FBC8F]/10">Experience</a>
+            <a href="#projects" class="text-[#8FBC8F] hover:text-[#D2B48C] transition-all duration-300 py-2 border-b border-[#8FBC8F]/10">Projects</a>
+            <a href="#contact" class="text-[#8FBC8F] hover:text-[#D2B48C] transition-all duration-300 py-2">Contact</a>
+        </div>
     </div>
-  </div>
+</nav>
+  
+<!-- Hero Section -->
+<section id="home" class="pt-32 pb-20 px-6 scroll-animate bg-[#0f1c07]">    <div class="container mx-auto flex flex-col md:flex-row-reverse items-center">
+    <div class="md:w-1/2 mb-12 md:mb-0 md:pl-10 flex justify-center">
+        <div class="relative">
+            <div class="w-64 h-64 md:w-80 md:h-80 bg-gradient-to-br from-[#2C5E1A] to-[#556B2F] 
+                        rounded-full overflow-hidden shadow-2xl border-4 border-[#8FBC8F]/30
+                        hover:border-[#8FBC8F]/50 transition-all duration-300
+                        transform hover:scale-105">
+                <img src="src/images/myprofile.jpg" 
+                     alt="Dung Nguyen Tien Profile" 
+                     class="w-full h-full object-cover object-center transform hover:scale-110 transition-all duration-500">
+            </div>
+            <div class="absolute -bottom-4 -right-4 bg-[#0f1c07] px-6 py-3 rounded-full 
+                        shadow-lg border border-[#8FBC8F]/30 backdrop-blur-lg
+                        transform hover:scale-110 transition-all duration-300">
+                <span class="font-medium text-[#8FBC8F]">junior</span>
+            </div>
+        </div>
+    </div>
+    <div class="md:w-1/2">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#8FBC8F] to-[#D2B48C] bg-clip-text text-transparent">
+            VNUK Student (Computer Science)
+        </h1>
+        <h2 class="text-2xl md:text-3xl mb-6 text-[#F5F5DC]">Hi, I'm <span class="font-semibold text-[#8FBC8F]">Dung Nguyen Tien</span></h2>
+        <p class="text-lg mb-8 text-[#D2B48C] leading-relaxed">
+            I am studying at VNUK and am a computer science student. However, I have a passion for game programming, with the hope of creating a meaningful product for life in the future.
+        </p>
+        <div class="flex flex-wrap gap-4">
+            <a href="#contact" 
+               class="bg-gradient-to-r from-[#2C5E1A] to-[#556B2F] hover:from-[#3D7042] hover:to-[#6B8E4E] 
+                      text-[#F5F5DC] px-8 py-4 rounded-lg transition-all duration-300 
+                      shadow-lg hover:shadow-xl transform hover:-translate-y-1
+                      border border-[#8FBC8F]/20">
+                <span class="flex items-center">
+                    <span>Contact Me</span>
+                    <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
+                </span>
+            </a>
+            <button class="border-2 border-[#6B8E4E] text-[#8FBC8F] hover:bg-[#2C5E1A]/20 
+                         px-8 py-4 rounded-lg transition-all duration-300
+                         shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                <span class="flex items-center">
+                    <i class="fas fa-download mr-2"></i>
+                    <span>Download CV</span>
+                </span>
+            </button>
+        </div>
+        <div class="mt-8 flex space-x-6">
+            <a href="#" class="text-[#8FBC8F] hover:text-[#D2B48C] text-xl transition-all duration-300 transform hover:scale-110">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="#" class="text-[#8FBC8F] hover:text-[#D2B48C] text-xl transition-all duration-300 transform hover:scale-110">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-[#8FBC8F] hover:text-[#D2B48C] text-xl transition-all duration-300 transform hover:scale-110">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+    </div>
+</div>
+</section>
+<!-- Skills Section -->
+<section id="skills" class="py-20 px-6 bg-[#0f1c07] scroll-animate">
+    <div class="container mx-auto">
+        <h1 class="text-3xl font-bold mb-2 section-title text-[#F5F5DC]">Skills</h1>
+        <h2 class="text-xl text-[#8FBC8F] mb-12">Technologies I work with</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-[#2C5E1A]/20 p-6 rounded-xl shadow-lg backdrop-blur-sm border border-[#8FBC8F]/20">
+                <div class="flex items-center mb-4">
+                    <div class="w-10 h-10 bg-[#556B2F] rounded-full flex items-center justify-center mr-3">
+                        <i class="fas fa-code text-[#F5F5DC]"></i>
+                    </div>
+                    <h2 class="text-xl font-semibold text-[#D2B48C]">Frontend</h2>
+                </div>
+                <div class="flex flex-wrap gap-2 mt-4">
+                    <span class="skill-badge bg-[#556B2F]/50 text-[#F5F5DC] px-3 py-1 rounded-full text-sm border border-[#8FBC8F]/30">JavaScript</span>
+                    <span class="skill-badge bg-[#556B2F]/50 text-[#F5F5DC] px-3 py-1 rounded-full text-sm border border-[#8FBC8F]/30">TypeScript</span>
+                    <span class="skill-badge bg-[#556B2F]/50 text-[#F5F5DC] px-3 py-1 rounded-full text-sm border border-[#8FBC8F]/30">React</span>
+                    <span class="skill-badge bg-[#556B2F]/50 text-[#F5F5DC] px-3 py-1 rounded-full text-sm border border-[#8FBC8F]/30">HTML/CSS</span>
+                    <span class="skill-badge bg-[#556B2F]/50 text-[#F5F5DC] px-3 py-1 rounded-full text-sm border border-[#8FBC8F]/30">Tailwind CSS</span>
+                </div>
+            </div>            <div class="bg-[#2C5E1A]/20 p-6 rounded-xl shadow-lg backdrop-blur-sm border border-[#8FBC8F]/20">
+                <div class="flex items-center mb-4">
+                    <div class="w-10 h-10 bg-[#556B2F] rounded-full flex items-center justify-center mr-3">
+                        <i class="fas fa-server text-[#F5F5DC]"></i>
+                    </div>
+                    <h2 class="text-xl font-semibold text-[#D2B48C]">Backend</h2>
+                </div>
+                <div class="flex flex-wrap gap-2 mt-4">
+                    <span class="skill-badge bg-[#556B2F]/50 text-[#F5F5DC] px-3 py-1 rounded-full text-sm border border-[#8FBC8F]/30">Node.js</span>
+                    <span class="skill-badge bg-[#556B2F]/50 text-[#F5F5DC] px-3 py-1 rounded-full text-sm border border-[#8FBC8F]/30">Python</span>
+                    <span class="skill-badge bg-[#556B2F]/50 text-[#F5F5DC] px-3 py-1 rounded-full text-sm border border-[#8FBC8F]/30">SQL</span>
+                </div>
+            </div>
+        </div>        <div class="mt-8 grid md:grid-cols-2 gap-8">
+            <div class="bg-[#2C5E1A]/20 p-6 rounded-xl shadow-lg backdrop-blur-sm border border-[#8FBC8F]/20 
+                        hover:border-[#8FBC8F]/40 transition-all duration-300">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 bg-[#556B2F] rounded-full flex items-center justify-center mr-4 
+                              shadow-lg group-hover:bg-[#6B8E4E] transition-all duration-300">
+                        <i class="fas fa-gamepad text-[#F5F5DC] text-xl"></i>
+                    </div>
+                    <h2 class="text-xl font-semibold text-[#D2B48C]">Game Programming (Unity)</h2>
+                </div>
+                <ul class="space-y-4 mt-6">
+                    <li class="flex items-center group">
+                        <div class="w-8 h-8 bg-[#556B2F]/40 rounded-lg flex items-center justify-center mr-3 
+                                  group-hover:bg-[#556B2F]/60 transition-all duration-300 border border-[#8FBC8F]/30">
+                            <i class="fas fa-check text-[#8FBC8F] group-hover:text-[#F5F5DC] transition-all duration-300"></i>
+                        </div>
+                        <span class="text-[#F5F5DC]/80 group-hover:text-[#F5F5DC] transition-all duration-300">
+                            Design Patterns in Game Development
+                        </span>
+                    </li>
+                    <li class="flex items-center group">
+                        <div class="w-8 h-8 bg-[#556B2F]/40 rounded-lg flex items-center justify-center mr-3 
+                                  group-hover:bg-[#556B2F]/60 transition-all duration-300 border border-[#8FBC8F]/30">
+                            <i class="fas fa-check text-[#8FBC8F] group-hover:text-[#F5F5DC] transition-all duration-300"></i>
+                        </div>
+                        <span class="text-[#F5F5DC]/80 group-hover:text-[#F5F5DC] transition-all duration-300">
+                            Component-Based Design (Unity ECS / OOP)
+                        </span>
+                    </li>
+                    <li class="flex items-center group">
+                        <div class="w-8 h-8 bg-[#556B2F]/40 rounded-lg flex items-center justify-center mr-3 
+                                  group-hover:bg-[#556B2F]/60 transition-all duration-300 border border-[#8FBC8F]/30">
+                            <i class="fas fa-check text-[#8FBC8F] group-hover:text-[#F5F5DC] transition-all duration-300"></i>
+                        </div>
+                        <span class="text-[#F5F5DC]/80 group-hover:text-[#F5F5DC] transition-all duration-300">
+                            Game System Design & Documentation
+                        </span>
+                    </li>
+                </ul>
+                <div class="flex flex-wrap gap-2 mt-6 pt-6 border-t border-[#8FBC8F]/20">
+                    <span class="skill-badge bg-[#556B2F]/50 text-[#F5F5DC] px-3 py-1 rounded-full text-sm border border-[#8FBC8F]/30">Unity</span>
+                    <span class="skill-badge bg-[#556B2F]/50 text-[#F5F5DC] px-3 py-1 rounded-full text-sm border border-[#8FBC8F]/30">C#</span>
+                    <span class="skill-badge bg-[#556B2F]/50 text-[#F5F5DC] px-3 py-1 rounded-full text-sm border border-[#8FBC8F]/30">Unity ECS</span>
+                    <span class="skill-badge bg-[#556B2F]/50 text-[#F5F5DC] px-3 py-1 rounded-full text-sm border border-[#8FBC8F]/30">Game Design</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Experience Section -->
+<section id="experience" class="py-20 px-6 bg-[#0f1c07] scroll-animate">
+    <div class="container mx-auto">
+        <h1 class="text-3xl font-bold mb-2 section-title text-[#F5F5DC]">Experience</h1>
+        <h2 class="text-xl text-[#8FBC8F] mb-12">My professional journey</h2>
+        <div class="space-y-8">
+            <div class="bg-[#2C5E1A]/20 p-6 rounded-xl shadow-lg backdrop-blur-sm border border-[#8FBC8F]/20 hover:border-[#8FBC8F]/40 transition-all duration-300">
+                <div class="flex flex-col md:flex-row md:items-center mb-4">
+                    <span class="bg-[#556B2F] text-[#F5F5DC] px-4 py-2 rounded-full text-sm mr-4 mb-2 md:mb-0 w-fit shadow-md">2024-2025</span>
+                    <h3 class="text-xl font-bold text-[#D2B48C]">Game Developer</h3>
+                </div>
+                <h4 class="font-semibold text-lg mb-2 text-[#8FBC8F]">Freelance / Indie Projects</h4>
+                <p class="text-[#F5F5DC]/80 mb-4">
+                    Designed and developed 2D pixel-style games using Unity and C#. Focused on core gameplay mechanics, player control systems, and performance optimization. Applied key design patterns such as MVC and State Machine. Used Unity's Animator, Tilemap, and custom scripts for character logic, game flow, and enemy AI.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="bg-[#556B2F]/50 text-[#F5F5DC] px-3 py-1 rounded-full text-sm border border-[#8FBC8F]/30">Unity</span>
+                    <span class="bg-[#556B2F]/50 text-[#F5F5DC] px-3 py-1 rounded-full text-sm border border-[#8FBC8F]/30">C#</span>
+                    <span class="bg-[#556B2F]/50 text-[#F5F5DC] px-3 py-1 rounded-full text-sm border border-[#8FBC8F]/30">Game Design</span>
+                    <span class="bg-[#556B2F]/50 text-[#F5F5DC] px-3 py-1 rounded-full text-sm border border-[#8FBC8F]/30">Pixel Art</span>
+                </div>
+            </div>            <div class="bg-[#2C5E1A]/20 p-6 rounded-xl shadow-lg backdrop-blur-sm border border-[#8FBC8F]/20 hover:border-[#8FBC8F]/40 transition-all duration-300">
+                <div class="flex flex-col md:flex-row md:items-center mb-4">
+                    <span class="bg-[#556B2F] text-[#F5F5DC] px-4 py-2 rounded-full text-sm mr-4 mb-2 md:mb-0 w-fit shadow-md">2023 - 2024</span>
+                    <h3 class="text-xl font-bold text-[#D2B48C]">Web Programming Lecturer</h3>
+                </div>
+                <h4 class="font-semibold text-lg mb-2 text-[#8FBC8F]">VNUK Institute</h4>
+                <p class="text-[#F5F5DC]/80 mb-4">
+                    Lecturer for Web Programming with a focus on full-stack development using Next.js. Delivered practical sessions covering server/client components, API routes, SSR/SSG, authentication, and deployment. Designed and maintained course modules tailored to modern web architecture, guiding students through real-world projects and capstone applications.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="bg-[#556B2F]/50 text-[#F5F5DC] px-3 py-1 rounded-full text-sm border border-[#8FBC8F]/30">Next.js</span>
+                    <span class="bg-[#556B2F]/50 text-[#F5F5DC] px-3 py-1 rounded-full text-sm border border-[#8FBC8F]/30">React</span>
+                    <span class="bg-[#556B2F]/50 text-[#F5F5DC] px-3 py-1 rounded-full text-sm border border-[#8FBC8F]/30">Full Stack Development</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Projects Section -->
+<section id="projects" class="py-20 px-6 bg-[#0f1c07] scroll-animate">
+    <div class="container mx-auto">
+        <h1 class="text-3xl font-bold mb-2 section-title text-[#F5F5DC]">Projects</h1>
+        <h2 class="text-xl text-[#8FBC8F] mb-12">My featured work</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Project 1 -->
+            <div class="project-card bg-[#2C5E1A]/20 p-6 rounded-xl shadow-lg backdrop-blur-sm border border-[#8FBC8F]/20 hover:border-[#8FBC8F]/40 transition-all duration-300">
+                <h2 class="text-xl font-bold mb-2 text-[#D2B48C]">Pixel Quest - A 2D Adventure Platformer Game</h2>
+                <p class="text-[#F5F5DC]/80 mb-4">
+                    Developed a 2D side-scrolling adventure game with hand-crafted pixel art and modular gameplay systems. Implemented core features including player movement, enemy AI, item collection, level transitions, and dynamic dialogues. Designed a custom event system and state-driven character controller to handle in-game logic. Integrated save/load functionality and level editor tools to support fast iteration and scalability.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="bg-[#556B2F]/50 text-[#F5F5DC] px-3 py-1 rounded-full text-sm border border-[#8FBC8F]/30">Unity</span>
+                    <span class="bg-[#556B2F]/50 text-[#F5F5DC] px-3 py-1 rounded-full text-sm border border-[#8FBC8F]/30">C#</span>
+                    <span class="bg-[#556B2F]/50 text-[#F5F5DC] px-3 py-1 rounded-full text-sm border border-[#8FBC8F]/30">2D Physics</span>
+                    <span class="bg-[#556B2F]/50 text-[#F5F5DC] px-3 py-1 rounded-full text-sm border border-[#8FBC8F]/30">ScriptableObjects</span>
+                </div>
+            </div>            <!-- Project 2 -->
+            <div class="project-card bg-[#2C5E1A]/20 p-6 rounded-xl shadow-lg backdrop-blur-sm border border-[#8FBC8F]/20 hover:border-[#8FBC8F]/40 transition-all duration-300">
+                <h2 class="text-xl font-bold mb-2 text-[#D2B48C]">Latte Coffee - An Online Coffee Ordering Platform</h2>
+                <p class="text-[#F5F5DC]/80 mb-4">
+                    Developed a responsive web application for ordering customized coffee drinks online. Implemented product catalog, size & topping customization, shopping cart, and order tracking features. Utilized server-side rendering and dynamic routing for optimal performance. Integrated Firebase for authentication, Firestore for real-time data, and secure order management. Emphasized clean UI/UX with Tailwind CSS and responsive design best practices.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="bg-[#556B2F]/50 text-[#F5F5DC] px-3 py-1 rounded-full text-sm border border-[#8FBC8F]/30">Next.js</span>
+                    <span class="bg-[#556B2F]/50 text-[#F5F5DC] px-3 py-1 rounded-full text-sm border border-[#8FBC8F]/30">React</span>
+                    <span class="bg-[#556B2F]/50 text-[#F5F5DC] px-3 py-1 rounded-full text-sm border border-[#8FBC8F]/30">Firebase</span>
+                    <span class="bg-[#556B2F]/50 text-[#F5F5DC] px-3 py-1 rounded-full text-sm border border-[#8FBC8F]/30">Tailwind CSS</span>
+                    <span class="bg-[#556B2F]/50 text-[#F5F5DC] px-3 py-1 rounded-full text-sm border border-[#8FBC8F]/30">TypeScript</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Contact Section -->
+<section id="contact" class="py-20 px-6 bg-[#0f1c07] scroll-animate relative">
+    <div class="absolute inset-0 bg-[#0f1c07]"></div>
+    <div class="container mx-auto relative z-10">
+        <h1 class="text-3xl font-bold mb-2 section-title text-[#F5F5DC]">Contact</h1>
+        <h2 class="text-xl text-[#8FBC8F] mb-12">Get in touch with me</h2>
+        <div class="grid md:grid-cols-2 gap-12">
+            <div>
+                <h2 class="text-xl font-semibold mb-6 text-[#D2B48C]">Contact Information</h2>
+                <div class="space-y-6">
+                    <div class="flex items-start group">
+                        <div class="w-12 h-12 bg-[#2C5E1A] rounded-full flex items-center justify-center mr-4 
+                                  shadow-lg group-hover:bg-[#556B2F] transition-all duration-300">
+                            <i class="fas fa-envelope text-[#F5F5DC] text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-[#8FBC8F]">Email</h3>
+                            <a href="mailto:dung.nguyen230208@vnuk.edu.vn" 
+                               class="text-[#D2B48C] hover:text-[#F5F5DC] transition-all duration-300">
+                                dung.nguyen230208@vnuk.edu.vn
+                            </a>
+                        </div>
+                    </div>
+                    <div class="flex items-start group">
+                        <div class="w-12 h-12 bg-[#2C5E1A] rounded-full flex items-center justify-center mr-4 
+                                  shadow-lg group-hover:bg-[#556B2F] transition-all duration-300">
+                            <i class="fas fa-map-marker-alt text-[#F5F5DC] text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-[#8FBC8F]">Location</h3>
+                            <p class="text-[#D2B48C]">Da Nang, Vietnam</p>
+                        </div>
+                    </div>
+                </div>                <h3 class="text-xl font-semibold mt-12 mb-6 text-[#D2B48C]">Connect with me</h3>
+                <div class="flex space-x-6">
+                    <a href="#" class="w-12 h-12 bg-[#2C5E1A] rounded-full flex items-center justify-center text-[#F5F5DC] 
+                                    hover:bg-[#556B2F] transition-all duration-300 hover:scale-110 shadow-lg 
+                                    border border-[#8FBC8F]/30 hover:border-[#8FBC8F]/60">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="#" class="w-12 h-12 bg-[#2C5E1A] rounded-full flex items-center justify-center text-[#F5F5DC] 
+                                    hover:bg-[#556B2F] transition-all duration-300 hover:scale-110 shadow-lg
+                                    border border-[#8FBC8F]/30 hover:border-[#8FBC8F]/60">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="w-12 h-12 bg-[#2C5E1A] rounded-full flex items-center justify-center text-[#F5F5DC] 
+                                    hover:bg-[#556B2F] transition-all duration-300 hover:scale-110 shadow-lg
+                                    border border-[#8FBC8F]/30 hover:border-[#8FBC8F]/60">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h2 class="text-xl font-semibold mb-6 text-[#D2B48C]">Send a Message</h2>
+                <form class="space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-[#8FBC8F] mb-1">Your name</label>
+                            <input type="text" id="name" 
+                                   class="w-full px-4 py-3 bg-[#2C5E1A]/20 border border-[#8FBC8F]/30 rounded-lg 
+                                          text-[#F5F5DC] placeholder-[#8FBC8F]/50
+                                          focus:outline-none focus:ring-2 focus:ring-[#8FBC8F] focus:border-transparent
+                                          transition-all duration-300">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-[#8FBC8F] mb-1">Your email</label>
+                            <input type="email" id="email" 
+                                   class="w-full px-4 py-3 bg-[#2C5E1A]/20 border border-[#8FBC8F]/30 rounded-lg 
+                                          text-[#F5F5DC] placeholder-[#8FBC8F]/50
+                                          focus:outline-none focus:ring-2 focus:ring-[#8FBC8F] focus:border-transparent
+                                          transition-all duration-300">
+                        </div>
+                    </div>                    <div>
+                        <label for="subject" class="block text-sm font-medium text-[#8FBC8F] mb-1">Subject</label>
+                        <input type="text" id="subject" 
+                               class="w-full px-4 py-3 bg-[#2C5E1A]/20 border border-[#8FBC8F]/30 rounded-lg 
+                                      text-[#F5F5DC] placeholder-[#8FBC8F]/50
+                                      focus:outline-none focus:ring-2 focus:ring-[#8FBC8F] focus:border-transparent
+                                      transition-all duration-300">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-[#8FBC8F] mb-1">Message</label>
+                        <textarea id="message" rows="4" 
+                                  class="w-full px-4 py-3 bg-[#2C5E1A]/20 border border-[#8FBC8F]/30 rounded-lg 
+                                         text-[#F5F5DC] placeholder-[#8FBC8F]/50
+                                         focus:outline-none focus:ring-2 focus:ring-[#8FBC8F] focus:border-transparent
+                                         transition-all duration-300"></textarea>
+                    </div>
+                    <button type="submit" 
+                            class="bg-gradient-to-r from-[#2C5E1A] to-[#556B2F] hover:from-[#3D7042] hover:to-[#6B8E4E] 
+                                   text-[#F5F5DC] px-8 py-4 rounded-lg transition-all duration-300 
+                                   shadow-lg hover:shadow-xl transform hover:-translate-y-1
+                                   border border-[#8FBC8F]/20 hover:border-[#8FBC8F]/40
+                                   w-full md:w-auto">
+                        <span class="flex items-center justify-center">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            <span>Send Message</span>
+                        </span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Footer -->
+<footer class="bg-[#0f1c07] border-t border-[#8FBC8F]/20 py-12 px-6 shadow-lg scroll-animate">
+    <div class="container mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-start gap-12">
+            <div>
+                <h3 class="text-2xl font-bold mb-4 tracking-wide bg-gradient-to-r from-[#8FBC8F] to-[#D2B48C] bg-clip-text text-transparent">
+                    Dung Nguyen Tien
+                </h3>
+                <p class="text-[#8FBC8F] max-w-md mb-6 leading-relaxed">
+                    3nd year student specializing in Game Development, Object-oriented programming, web programming
+                </p>
+                <div class="flex space-x-6 mt-4">
+                    <a href="#" class="text-[#8FBC8F] hover:text-[#D2B48C] transition-all duration-300 transform hover:scale-110">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="#" class="text-[#8FBC8F] hover:text-[#D2B48C] transition-all duration-300 transform hover:scale-110">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-[#8FBC8F] hover:text-[#D2B48C] transition-all duration-300 transform hover:scale-110">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold mb-4 tracking-wide text-[#D2B48C]">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li>
+                        <a href="#home" class="text-[#8FBC8F] hover:text-[#D2B48C] transition-all duration-300 flex items-center group">
+                            <i class="fas fa-chevron-right mr-2 text-xs transition-transform group-hover:translate-x-1"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#about" class="text-[#8FBC8F] hover:text-[#D2B48C] transition-all duration-300 flex items-center group">
+                            <i class="fas fa-chevron-right mr-2 text-xs transition-transform group-hover:translate-x-1"></i>
+                            <span>About</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#skills" class="text-[#8FBC8F] hover:text-[#D2B48C] transition-all duration-300 flex items-center group">
+                            <i class="fas fa-chevron-right mr-2 text-xs transition-transform group-hover:translate-x-1"></i>
+                            <span>Skills</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#projects" class="text-[#8FBC8F] hover:text-[#D2B48C] transition-all duration-300 flex items-center group">
+                            <i class="fas fa-chevron-right mr-2 text-xs transition-transform group-hover:translate-x-1"></i>
+                            <span>Projects</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#contact" class="text-[#8FBC8F] hover:text-[#D2B48C] transition-all duration-300 flex items-center group">
+                            <i class="fas fa-chevron-right mr-2 text-xs transition-transform group-hover:translate-x-1"></i>
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>            <div>
+                <h3 class="text-lg font-semibold mb-4 tracking-wide text-[#D2B48C]">Contact Info</h3>
+                <ul class="space-y-4">
+                    <li class="flex items-center group">
+                        <div class="w-8 h-8 bg-[#2C5E1A] rounded-full flex items-center justify-center mr-3 
+                                  group-hover:bg-[#556B2F] transition-all duration-300 shadow-md">
+                            <i class="fas fa-envelope text-[#F5F5DC] text-sm"></i>
+                        </div>
+                        <span class="text-[#8FBC8F] group-hover:text-[#D2B48C] transition-all duration-300">
+                            dung.nguyen230208@vnuk.edu.vn
+                        </span>
+                    </li>
+                    <li class="flex items-center group">
+                        <div class="w-8 h-8 bg-[#2C5E1A] rounded-full flex items-center justify-center mr-3 
+                                  group-hover:bg-[#556B2F] transition-all duration-300 shadow-md">
+                            <i class="fas fa-map-marker-alt text-[#F5F5DC] text-sm"></i>
+                        </div>
+                        <span class="text-[#8FBC8F] group-hover:text-[#D2B48C] transition-all duration-300">
+                            Da Nang, Vietnam
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-[#8FBC8F]/20 mt-12 pt-8 text-center">
+            <p class="text-[#8FBC8F] text-xs">© 2025 Dung Nguyen Tien. All rights reserved.</p>
+            <p class="mt-2 text-xs text-[#6B8E4E]">
+                Built with <i class="fas fa-heart text-[#D2B48C] mx-1"></i> and Tailwind CSS
+            </p>
+        </div>
+    </div>
+</footer>
+<script>
+    // Mobile menu toggle
+    document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+        document.getElementById('mobile-menu').classList.toggle('active');
+    });
 
-  <div class="flex flex-row justify-center items-center p-12">
-    <h1 class="text-5xl text-green-300 animate-bounce">Hello, Tailwind CSS</h1>
-  </div>
+    // Scroll animation
+    function handleScrollAnimation() {
+        const elements = document.querySelectorAll('.scroll-animate');
+        elements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            if (elementTop < windowHeight * 0.85) {
+                element.classList.add('visible');
+            }
+        });
+    }
 
-  <script type="module" src="/src/scripts/application.js"></script>
+    // Initial check for elements in view
+    handleScrollAnimation();
 
+    // Listen for scroll events
+    window.addEventListener('scroll', handleScrollAnimation);
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const target = document.querySelector(targetId);
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile menu if open
+                document.getElementById('mobile-menu').classList.remove('active');
+            }
+        });
+    });
+</script>
 </body>
 </html>
